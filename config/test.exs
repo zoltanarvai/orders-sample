@@ -19,14 +19,14 @@ config :orders, Orders.Repo,
 
 # Configure Auth0 for the Auth module
 config :orders,
-auth0: %{
-  url: %URI{
-    host: "localhost",
-    port: 3200,
-    scheme: "http"
-  },
-  client_id: "6NeT3VHSzKK4mMXVq7BhSvAq0fUSUXUB",
-  client_secret: "9aAIvTnSL-09QyP-ttbxy9l0NavpyySHulTMTqUYpyfTG0Clt8qz1IEAcqN5spy6",
-  audience: "https://orders-sample-api.zoltanarvai.dev/",
-  scope: "read:orders"
-}
+  auth0: %{
+    url: %URI{
+      host: "localhost",
+      port: 3200,
+      scheme: "http"
+    },
+    client_id: "6NeT3VHSzKK4mMXVq7BhSvAq0fUSUXUB",
+    client_secret: "9aAIvTnSL-09QyP-ttbxy9l0NavpyySHulTMTqUYpyfTG0Clt8qz1IEAcqN5spy6",
+    audience: "https://orders-sample-api.zoltanarvai.dev/",
+    scope: "read:orders"
+  }
