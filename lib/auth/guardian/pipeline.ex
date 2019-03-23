@@ -10,7 +10,7 @@ defmodule Auth.Guardian.Pipeline do
   # Verify authorisation header and make sure order management is allowed for Identity
   plug Guardian.Plug.VerifyHeader
 
-  # Make sure the otken is found and authenticated
+  # Make sure the token is found and authenticated
   plug Guardian.Plug.EnsureAuthenticated
 
   # Load the Identity

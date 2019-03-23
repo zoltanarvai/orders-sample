@@ -4,7 +4,7 @@ defmodule OrdersWeb.OrdersController do
   """
   use OrdersWeb, :controller
 
-  def index(%{assigns: assigns} = conn, _) do
+  def index(conn, _) do
     conn
     |> put_status(:ok)
     |> render(:show, orders: "Here be orders")

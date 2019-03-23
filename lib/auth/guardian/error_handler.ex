@@ -8,7 +8,7 @@ defmodule Auth.Guardian.ErrorHandler do
 
   @impl Guardian.Plug.ErrorHandler
   @doc false
-  def auth_error(conn, {type, reason}, _opts) do
+  def auth_error(conn, {type, _reason}, _opts) do
     body = to_string(type)
 
     conn
