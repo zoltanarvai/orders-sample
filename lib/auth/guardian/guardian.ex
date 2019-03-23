@@ -11,5 +11,9 @@ defmodule Auth.Guardian do
 
   @impl Guardian
   @doc false
-  def resource_from_claims(%{"sub" => "auth0|" <> id} = claims), do: {:ok, %Identity{id: id}}
+  def subject_for_token(user, _claims), do: {:ok, to_string(user.id)}
+
+  @impl Guardian
+  @doc false
+  def resource_from_claims(%{"sub" => "auth0|" <> id}), do: {:ok, %Identity{id: id}}
 end

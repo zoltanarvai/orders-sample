@@ -13,7 +13,10 @@ defmodule Test.OrdersWeb.OrdersController do
     # For demo purposes it's fine :)
     response =
       conn
-      |> put_req_header("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL29yZGVycy1zYW1wbGUuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVjOTYwNjhiMGQ4Y2VhMmVhOWUyNzMyZiIsImF1ZCI6Imh0dHBzOi8vb3JkZXJzLXNhbXBsZS1hcGkuem9sdGFuYXJ2YWkuZGV2LyIsImlhdCI6MTU1MzM0OTMxNiwiZXhwIjoxNTU1OTQxMzE2LCJhenAiOiI2TmVUM1ZIU3pLSzRtTVhWcTdCaFN2QXEwZlVTVVhVQiIsInNjb3BlIjoicmVhZDpvcmRlcnMiLCJndHkiOiJwYXNzd29yZCJ9.RI5X5yVAR9wYoj2OvMSJEFJLbLaE3zFVqAF5bSyj8Zc")
+      |> put_req_header(
+        "authorization",
+        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL29yZGVycy1zYW1wbGUuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVjOTYwNjhiMGQ4Y2VhMmVhOWUyNzMyZiIsImF1ZCI6Imh0dHBzOi8vb3JkZXJzLXNhbXBsZS1hcGkuem9sdGFuYXJ2YWkuZGV2LyIsImlhdCI6MTU1MzM0OTMxNiwiZXhwIjoxNTU1OTQxMzE2LCJhenAiOiI2TmVUM1ZIU3pLSzRtTVhWcTdCaFN2QXEwZlVTVVhVQiIsInNjb3BlIjoicmVhZDpvcmRlcnMiLCJndHkiOiJwYXNzd29yZCJ9.RI5X5yVAR9wYoj2OvMSJEFJLbLaE3zFVqAF5bSyj8Zc"
+      )
       |> get("/orders")
       |> json_response(200)
 
@@ -27,7 +30,7 @@ defmodule Test.OrdersWeb.OrdersController do
       conn
       |> get("/orders")
 
-      assert response.status == 401
+    assert response.status == 401
   end
 
   test "GET /orders should fail with 401 if token is not valid", %{
@@ -35,7 +38,10 @@ defmodule Test.OrdersWeb.OrdersController do
   } do
     response =
       conn
-      |> put_req_header("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL29yZGVycy1zYW1wbGUuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVjOTYwNjhiMGQ4Y2VhMmVhOWUyNzMyZiIsImF1ZCI6Imh0dHBzOi8vb3JkZXJzLXNhbXBsZS1hcGkuem9sdGFuYXJ2YWkuZGV2LyIsImlhdCI6MTU1MzM0OTMxNiwiZXhwIjoxNTU1OTQxMzE2LCJhenAiOiI2TmVUM1ZIU3pLSzRtTVhWcTdCaFN2QXEwZlVTVVhVQiIsInNjb3BlIjoicmVhZDpvcmRlcnMiLCJndHkiOiJwYXNzd29yZCJ9.RI5X5yVAR9wYoj2OvMSJEFJLbLaE3zFVqAF5bSyj8Zsdfc")
+      |> put_req_header(
+        "authorization",
+        "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL29yZGVycy1zYW1wbGUuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVjOTYwNjhiMGQ4Y2VhMmVhOWUyNzMyZiIsImF1ZCI6Imh0dHBzOi8vb3JkZXJzLXNhbXBsZS1hcGkuem9sdGFuYXJ2YWkuZGV2LyIsImlhdCI6MTU1MzM0OTMxNiwiZXhwIjoxNTU1OTQxMzE2LCJhenAiOiI2TmVUM1ZIU3pLSzRtTVhWcTdCaFN2QXEwZlVTVVhVQiIsInNjb3BlIjoicmVhZDpvcmRlcnMiLCJndHkiOiJwYXNzd29yZCJ9.RI5X5yVAR9wYoj2OvMSJEFJLbLaE3zFVqAF5bSyj8Zsdfc"
+      )
       |> get("/orders")
 
     assert response.status == 401

@@ -51,4 +51,4 @@ config :orders, Auth.Guardian,
   verify_module: Guardian.JWT,
   issuer: "https://orders-sample.eu.auth0.com/",
   verify_issuer: true,
-  secret_key: "qgXw5waJYQ8kd6LDFpqY4UuswJ4D0gGS"  
+  secret_key: "qgXw5waJYQ8kd6LDFpqY4UuswJ4D0gGS"
