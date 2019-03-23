@@ -1,6 +1,11 @@
 defmodule OrdersWeb.ErrorView do
   use OrdersWeb, :view
 
+  # Ecto Changeset validation errors can be translated nicely into the same structure
+  def render("400.json", %{changeset: changeset}) do
+    %{errors: Ecto.Changeset.traverse_errors(changeset, &translate_error/1)}
+  end
+  
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
   # def render("500.json", _assigns) do
