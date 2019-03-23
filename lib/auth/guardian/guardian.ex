@@ -15,8 +15,5 @@ defmodule Auth.Guardian do
 
   @impl Guardian
   @doc false
-  def resource_from_claims(%{"sub" => "auth0|" <> id} = claims) do
-    IO.inspect claims
-    {:ok, %Identity{id: id}}
-  end
+  def resource_from_claims(%{"sub" => "auth0|" <> id} = claims), do: {:ok, %Identity{id: id}}
 end
