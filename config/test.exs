@@ -30,3 +30,11 @@ config :orders,
     audience: "https://orders-sample-api.zoltanarvai.dev/",
     scope: "read:orders"
   }
+
+# Setup Guardian with Auth0
+config :orders, Auth.Guardian,
+  allowed_algos: ["HS256"],
+  verify_module: Guardian.JWT,
+  issuer: "https://orders-sample.eu.auth0.com/",
+  verify_issuer: true,
+  secret_key: "qgXw5waJYQ8kd6LDFpqY4UuswJ4D0gGS"  
