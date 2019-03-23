@@ -8,12 +8,5 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+This is a sample application written to demonstrate how to use Auth0 and Phoenix with Guardian, in machine to machine API authentication scenarios. See the realted blog posts here:
+[`API Authentication with Phoenix, Auth0 and Guardian`](https://medium.com/@zoltanarvai/api-authentication-with-phoenix-auth0-and-guardian-part-1-43797eac4bda)
