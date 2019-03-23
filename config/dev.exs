@@ -31,7 +31,7 @@ config :orders, Orders.Repo,
   hostname: "localhost",
   pool_size: 10
 
-# Configure auth zero for the Auth module
+# Configure Auth0 for the Auth module
 config :orders,
   auth0: %{
     url: %URI{

@@ -43,6 +43,7 @@ defmodule Orders.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.5"},
       {:guardian, "~> 1.2.1"},
+      {:bypass, "~> 1.0"}
     ]
   end
 

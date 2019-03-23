@@ -30,7 +30,6 @@ defmodule Auth do
     @auth0.url
     |> build_url()
     |> HTTPoison.post(body, headers)
-    |> IO.inspect
     |> response
     |> parse
   end
