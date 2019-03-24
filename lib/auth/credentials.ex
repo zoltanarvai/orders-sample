@@ -41,7 +41,7 @@ defmodule Auth.Credentials do
           []
 
         :error ->
-          [password: "Must be base64 encoded"]
+          [password: "must be base64 encoded"]
       end
     end)
   end

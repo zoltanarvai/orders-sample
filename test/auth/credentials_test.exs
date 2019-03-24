@@ -1,5 +1,6 @@
 defmodule Test.Auth.Credentials do
   use ExUnit.Case, async: true
+  use Orders.DataCase
 
   alias Auth.Credentials
   import Auth.Credentials
@@ -12,25 +13,23 @@ defmodule Test.Auth.Credentials do
   end
 
   test "validate/1 should return error if password is missing" do
-    {:error, %Ecto.Changeset{errors: errors, valid?: valid}} = validate(%{username: "user"})
+    {:error, changeset} = validate(%{username: "user"})
 
-    assert valid == false
-    assert ^errors = [password: {"can't be blank", [validation: :required]}]
+    refute changeset.valid?
+    assert %{password: ["can't be blank"]} = errors_on(changeset)
   end
 
   test "validate/1 should return error if password is in the wrong format" do
-    {:error, %Ecto.Changeset{errors: errors, valid?: valid}} =
-      validate(%{username: "user", password: "UGFzc3dvcmQxx"})
+    {:error, changeset} = validate(%{username: "user", password: "UGFzc3dvcmQxx"})
 
-    assert valid == false
-    assert ^errors = [password: {"Must be base64 encoded", []}]
+    refute changeset.valid?
+    assert %{password: ["must be base64 encoded"]} = errors_on(changeset)
   end
 
   test "validate/1 should return error if username is missing" do
-    {:error, %Ecto.Changeset{errors: errors, valid?: valid}} =
-      validate(%{password: "UGFzc3dvcmQx"})
+    {:error, changeset} = validate(%{password: "UGFzc3dvcmQx"})
 
-    assert valid == false
-    assert ^errors = [username: {"can't be blank", [validation: :required]}]
+    refute changeset.valid?
+    assert %{username: ["can't be blank"]} = errors_on(changeset)
   end
 end
