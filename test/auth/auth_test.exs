@@ -69,7 +69,7 @@ defmodule Test.Auth do
       Plug.Conn.resp(conn, 401, "Unauthorised")
     end)
 
-    assert {:error, :unauthorized} =
+    assert {:error, :unauthorized} ==
              sign_in(%Credentials{
                username: "test@zoltanarvai.dev",
                password: Base.encode64("Password1")
@@ -84,7 +84,7 @@ defmodule Test.Auth do
       Plug.Conn.resp(conn, 403, "Forbidden")
     end)
 
-    assert {:error, :forbidden} =
+    assert {:error, :forbidden} ==
              sign_in(%Credentials{
                username: "test@zoltanarvai.dev",
                password: Base.encode64("Password1")
